@@ -8,7 +8,23 @@ namespace Demo_Bitcoin_Exercises
     static void Main(string[] args)
     {
       // Keys();
-      ScriptPubKeys();
+      // ScriptPubKeys();
+      // PrivateKeys();
+      Transactions.ShowTransaction();
+    }
+
+    static void PrivateKeys()
+    {
+      // generate a random private key
+      var privateKey = new Key();
+      Console.WriteLine(privateKey);
+      // generate our Bitcoin secret(also known as Wallet Import Format or simply WIF) from our private key for the mainnet
+      var mainNetPrivateKey = privateKey.GetBitcoinSecret(Network.Main);
+      // wallet import address
+      var wif = privateKey.GetWif(Network.Main);
+
+      Console.WriteLine(mainNetPrivateKey);
+      Console.WriteLine(wif);
     }
 
     static void ScriptPubKeys()
